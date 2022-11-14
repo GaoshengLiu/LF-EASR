@@ -16,7 +16,7 @@ We provide MATLAB code for preparing the training and test data. Please first do
   ```python
   python train.py
 ## Test
-### We provide the pre-trained model for real-world scenes. 
+We provide the pre-trained model for real-world scenes in ./checkpoint_SIG. 
 * Run:
   ```python
   python test.py
