@@ -1,4 +1,4 @@
-# LF-EASR Efficient Light Field Angular Super-Resolution With Sub-Aperture Feature Learning and Macro-Pixel Upsampling
+# LF-EASR: Efficient Light Field Angular Super-Resolution With Sub-Aperture Feature Learning and Macro-Pixel Upsampling
 
 This repository contains official pytorch implementation of Efficient Light Field Angular Super-Resolution With Sub-Aperture Feature Learning and Macro-Pixel Upsampling in TMM 2022, by Gaosheng Liu, Huanjing Yue, Jiamin Wu, and Jingyu Yang. [TMM 2022 LF-EASR](https://ieeexplore.ieee.org/document/9915519)
 
