@@ -9,14 +9,14 @@ This repository contains official pytorch implementation of Efficient Light Fiel
 * Matlab
 
 ## Dataset
-We provide MATLAB code for preparing the training and test data. Please first download light field datasets, and put them into corresponding folders.
+We provide MATLAB code for preparing the training and test data. Please first download light field datasets, and put them into corresponding folders. The real-world training data is available in [SIGGRAPH/ACM Trans. Graph.](https://cseweb.ucsd.edu/~viscomp/projects/LF/papers/SIGASIA16/).
 
 ## Training
-### We provide the trained model for real-world data.
 * Run:
   ```python
   python train.py
 ## Test
+### We provide the pre-trained model for real-world scenes. 
 * Run:
   ```python
   python test.py
