@@ -5,7 +5,7 @@ import torch.backends.cudnn as cudnn
 from tqdm import tqdm
 from utils import *
 import math
-from model_light_noatt import Net
+from model_EASR import Net
 #os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 # Settings
 def parse_args():
