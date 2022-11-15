@@ -121,15 +121,20 @@ def valid(test_loader, net, ind_source):
         h0, w0 = uh // cfg.angin, vw // cfg.angin
         subLFin = LFdivide(data, cfg.angin, cfg.patchsize, cfg.stride)  # numU, numV, h*angin, w*angin
         numU, numV, H, W = subLFin.shape
-        subLFout = torch.zeros(numU, numV, cfg.angout * cfg.patchsize, cfg.angout * cfg.patchsize)
-
-        for u in range(numU):
-            for v in range(numV):
-                tmp = subLFin[u, v, :, :].unsqueeze(0).unsqueeze(0)
-                with torch.no_grad():
-                    torch.cuda.empty_cache()
-                    out = net(tmp.to(cfg.device))
-                    subLFout[u, v, :, :] = out.squeeze()
+        minibatch = 4
+        num_inference = numU*numV//minibatch
+        tmp_in = subLFin.contiguous().view(numU*numV, subLFin.shape[2], subLFin.shape[3])
+        
+        with torch.no_grad():
+            out_lf = []
+            for idx_inference in range(num_inference):
+                tmp = tmp_in[idx_inference*minibatch:(idx_inference+1)*minibatch,:,:].unsqueeze(1)
+                out_lf.append(net(tmp.to(cfg.device)))#
+            if (numU*numV)%minibatch:
+                tmp = tmp_in[(idx_inference+1)*minibatch:,:,:].unsqueeze(1)
+                out_lf.append(net(tmp.to(cfg.device)))#
+        out_lf = torch.cat(out_lf, 0)
+        subLFout = out_lf.view(numU, numV, cfg.angout * cfg.patchsize, cfg.angout * cfg.patchsize)
 
         outLF = LFintegrate(subLFout, cfg.angout, cfg.patchsize, cfg.stride, h0, w0)
 
