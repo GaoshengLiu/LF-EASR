@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=1)
     parser.add_argument('--lr', type=float, default=1e-4, help='initial learning rate')
     parser.add_argument('--n_epochs', type=int, default=80, help='number of epochs to train')
-    parser.add_argument('--n_steps', type=int, default=15, help='number of epochs to update learning rate')
+    parser.add_argument('--n_steps', type=int, default=25, help='number of epochs to update learning rate')
     parser.add_argument('--gamma', type=float, default=0.5, help='learning rate decaying factor')
     parser.add_argument("--smooth", type=float, default=0.001, help="smooth loss")
     parser.add_argument("--epi", type=float, default=1.0, help="epi loss")
@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument("--stride", type=int, default=32, help="stride for patch cropping")
 
     parser.add_argument('--load_pretrain', type=bool, default=False)
-    parser.add_argument('--model_path', type=str, default='../checkpoint/DFnet_2xSR_5x5_epoch_35.pth.tar')
+    parser.add_argument('--model_path', type=str, default='../checkpoint/ASRnet.pth.tar')
 
     return parser.parse_args()
 
