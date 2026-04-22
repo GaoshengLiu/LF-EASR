@@ -5,7 +5,7 @@ This repository contains official pytorch implementation of Efficient Light Fiel
 ## Requirement
 * Ubuntu 18.04
 * Python 3.6
-* Pyorch 1.7
+* Pytorch 1.7
 * Matlab
 
 ## Dataset
